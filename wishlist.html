@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.8rem;
+        }
+
+        .wishlist-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .wishlist-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .wishlist-header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        .wishlist-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .wishlist-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .wishlist-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .wishlist-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .wishlist-item-info {
+            padding: 20px;
+        }
+
+        .wishlist-item-info h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .wishlist-item-info p {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .wishlist-item-info .price {
+            font-size: 1.3rem;
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .wishlist-item-info button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .wishlist-item-info button:hover {
+            background-color: #c0392b;
+        }
+
+        .wishlist-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .wishlist-actions a {
+            text-decoration: none;
+            background-color: #2ecc71;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .wishlist-actions a:hover {
+            background-color: #27ae60;
+        }
+
+        @media (max-width: 768px) {
+            .wishlist-header h1 {
+                font-size: 2rem;
+            }
+
+            .wishlist-items {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>My Wishlist</h1>
+</header>
+
+<div class="wishlist-container">
+    <div class="wishlist-header">
+        <h1>Your Favorite Items</h1>
+    </div>
+
+    <div class="wishlist-items">
+        <!-- Wishlist Item 1 -->
+        <div class="wishlist-item">
+            <img src="https://via.placeholder.com/300x200" alt="Product Image">
+            <div class="wishlist-item-info">
+                <h3>Wireless Bluetooth Headphones</h3>
+                <p>Enjoy high-quality sound with wireless freedom.</p>
+                <div class="price">$129.99</div>
+                <button onclick="removeItem(this)">Remove from Wishlist</button>
+            </div>
+        </div>
+
+        <!-- Wishlist Item 2 -->
+        <div class="wishlist-item">
+            <img src="https://via.placeholder.com/300x200" alt="Product Image">
+            <div class="wishlist-item-info">
+                <h3>Smartwatch Fitness Tracker</h3>
+                <p>Track your fitness goals and stay healthy.</p>
+                <div class="price">$199.99</div>
+                <button onclick="removeItem(this)">Remove from Wishlist</button>
+            </div>
+        </div>
+
+        <!-- Wishlist Item 3 -->
+        <div class="wishlist-item">
+            <img src="https://via.placeholder.com/300x200" alt="Product Image">
+            <div class="wishlist-item-info">
+                <h3>Portable Bluetooth Speaker</h3>
+                <p>Take your music wherever you go with this portable speaker.</p>
+                <div class="price">$79.99</div>
+                <button onclick="removeItem(this)">Remove from Wishlist</button>
+            </div>
+        </div>
+
+        <!-- Wishlist Item 4 -->
+        <div class="wishlist-item">
+            <img src="https://via.placeholder.com/300x200" alt="Product Image">
+            <div class="wishlist-item-info">
+                <h3>4K Ultra HD Smart TV</h3>
+                <p>Immerse yourself in stunning 4K visuals.</p>
+                <div class="price">$899.99</div>
+                <button onclick="removeItem(this)">Remove from Wishlist</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="wishlist-actions">
+        <a href="store.html">Back to Store</a>
+        <a href="checkout.html">Proceed to Checkout</a>
+    </div>
+</div>
+
+<script>
+    // Function to remove an item from the wishlist
+    function removeItem(button) {
+        const item = button.closest('.wishlist-item');
+        item.style.opacity = '0';
+        setTimeout(() => {
+            item.remove();
+        }, 300); // Remove item after fade-out
+    }
+</script>
+
+</body>
+</html>

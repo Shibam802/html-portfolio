@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notifications</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .notification-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .notification-item {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s;
+    }
+
+    .notification-item:hover {
+      background: #ecf0f1;
+    }
+
+    .notification-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+    }
+
+    .notification-content {
+      flex-grow: 1;
+    }
+
+    .notification-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .notification-message {
+      font-size: 1rem;
+      color: #7f8c8d;
+      margin-top: 0.5rem;
+    }
+
+    .notification-time {
+      font-size: 0.85rem;
+      color: #95a5a6;
+      margin-top: 0.5rem;
+    }
+
+    .mark-read-btn {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    .mark-read-btn:hover {
+      background-color: #2980b9;
+    }
+
+    .read {
+      background-color: #ecf0f1 !important;
+    }
+
+    .no-notifications {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #7f8c8d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Notifications</h1>
+    <p>Stay up to date with your latest alerts and updates.</p>
+  </header>
+
+  <div class="container">
+    <!-- Notification List -->
+    <ul class="notification-list">
+      <li class="notification-item" id="notif1">
+        <div class="notification-icon">i</div>
+        <div class="notification-content">
+          <p class="notification-title">Important System Update</p>
+          <p class="notification-message">A critical update is available for your system. Please update it ASAP to ensure security.</p>
+          <p class="notification-time">2 hours ago</p>
+        </div>
+        <button class="mark-read-btn" onclick="markAsRead('notif1')">Mark as Read</button>
+      </li>
+
+      <li class="notification-item" id="notif2">
+        <div class="notification-icon">!</div>
+        <div class="notification-content">
+          <p class="notification-title">Payment Due Reminder</p>
+          <p class="notification-message">Your payment is due in 3 days. Don't forget to make your payment to avoid late fees.</p>
+          <p class="notification-time">1 day ago</p>
+        </div>
+        <button class="mark-read-btn" onclick="markAsRead('notif2')">Mark as Read</button>
+      </li>
+
+      <li class="notification-item" id="notif3">
+        <div class="notification-icon">✓</div>
+        <div class="notification-content">
+          <p class="notification-title">Your Task Was Completed</p>
+          <p class="notification-message">The task you requested has been successfully completed. Check your dashboard for more details.</p>
+          <p class="notification-time">3 days ago</p>
+        </div>
+        <button class="mark-read-btn" onclick="markAsRead('notif3')">Mark as Read</button>
+      </li>
+
+      <li class="notification-item" id="notif4">
+        <div class="notification-icon">⚠</div>
+        <div class="notification-content">
+          <p class="notification-title">Warning: Low Disk Space</p>
+          <p class="notification-message">Your system is running low on disk space. Please consider deleting some files or upgrading your storage.</p>
+          <p class="notification-time">5 days ago</p>
+        </div>
+        <button class="mark-read-btn" onclick="markAsRead('notif4')">Mark as Read</button>
+      </li>
+    </ul>
+
+    <!-- No Notifications Message -->
+    <div id="noNotifications" class="no-notifications" style="display: none;">
+      No new notifications.
+    </div>
+  </div>
+
+  <script>
+    function markAsRead(notificationId) {
+      const notification = document.getElementById(notificationId);
+      notification.classList.add('read');  // Add the "read" style
+      const button = notification.querySelector('.mark-read-btn');
+      button.disabled = true;  // Disable the button after marking as read
+      button.innerText = 'Read';
+    }
+
+    // Check if no notifications are available
+    window.onload = () => {
+      const notifications = document.querySelectorAll('.notification-item');
+      const noNotificationsMessage = document.getElementById('noNotifications');
+      if (notifications.length === 0) {
+        noNotificationsMessage.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

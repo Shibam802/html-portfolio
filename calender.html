@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.8rem;
+        }
+
+        .calendar-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-header h2 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .calendar-header button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .calendar-header button:hover {
+            background-color: #2980b9;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        .calendar-day {
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .calendar-day:hover {
+            background-color: #3498db;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .calendar-day.disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .calendar-day.selected {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .calendar-container {
+                padding: 10px;
+            }
+
+            .calendar-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>My Calendar</h1>
+</header>
+
+<div class="calendar-container">
+    <div class="calendar-header">
+        <button id="prevMonthBtn">Previous Month</button>
+        <h2 id="monthName"></h2>
+        <button id="nextMonthBtn">Next Month</button>
+    </div>
+
+    <div class="calendar-days" id="calendarDays"></div>
+</div>
+
+<script>
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    let currentDate = new Date();
+    let currentMonth = currentDate.getMonth();
+    let currentYear = currentDate.getFullYear();
+
+    // Function to render the calendar for the current month
+    function renderCalendar() {
+        const firstDay = new Date(currentYear, currentMonth, 1);
+        const lastDay = new Date(currentYear, currentMonth + 1, 0);
+        const daysInMonth = lastDay.getDate();
+
+        // Set month name
+        document.getElementById("monthName").textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+        const calendarDays = document.getElementById("calendarDays");
+        calendarDays.innerHTML = '';  // Clear the existing calendar days
+
+        // Add the day headers (Sun, Mon, Tue, etc.)
+        const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        weekdays.forEach(day => {
+            const dayElement = document.createElement('div');
+            dayElement.textContent = day;
+            calendarDays.appendChild(dayElement);
+        });
+
+        // Add empty cells before the first day of the month
+        for (let i = 0; i < firstDay.getDay(); i++) {
+            const emptyCell = document.createElement('div');
+            calendarDays.appendChild(emptyCell);
+        }
+
+        // Add the actual days of the month
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayElement = document.createElement('div');
+            dayElement.classList.add('calendar-day');
+            dayElement.textContent = day;
+            dayElement.onclick = () => selectDate(day);
+
+            // Disable days from the past (if today is later than the day)
+            const date = new Date(currentYear, currentMonth, day);
+            if (date < currentDate) {
+                dayElement.classList.add('disabled');
+            }
+
+            calendarDays.appendChild(dayElement);
+        }
+    }
+
+    // Function to navigate to the previous month
+    document.getElementById("prevMonthBtn").onclick = function() {
+        if (currentMonth > 0) {
+            currentMonth--;
+        } else {
+            currentMonth = 11;
+            currentYear--;
+        }
+        renderCalendar();
+    };
+
+    // Function to navigate to the next month
+    document.getElementById("nextMonthBtn").onclick = function() {
+        if (currentMonth < 11) {
+            currentMonth++;
+        } else {
+            currentMonth = 0;
+            currentYear++;
+        }
+        renderCalendar();
+    };
+
+    // Function to select a date
+    function selectDate(day) {
+        const dayElements = document.querySelectorAll('.calendar-day');
+        dayElements.forEach(dayElement => {
+            dayElement.classList.remove('selected');
+        });
+
+        // Select the clicked day
+        const selectedDayElement = [...dayElements].find(dayElement => dayElement.textContent == day);
+        if (selectedDayElement) {
+            selectedDayElement.classList.add('selected');
+        }
+    }
+
+    // Initial render of the calendar
+    renderCalendar();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Help Center</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    .faq {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .faq-item {
+      flex: 1;
+      min-width: 250px;
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .faq-item h3 {
+      color: #34495e;
+      font-size: 1.1rem;
+    }
+
+    .faq-item p {
+      color: #7f8c8d;
+      font-size: 1rem;
+    }
+
+    .search-section {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .search-section input {
+      padding: 0.75rem;
+      width: 100%;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .search-section button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .search-section button:hover {
+      background-color: #2980b9;
+    }
+
+    .contact-support {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #ecf0f1;
+      border-radius: 8px;
+    }
+
+    .contact-support p {
+      color: #34495e;
+      font-size: 1rem;
+    }
+
+    .contact-support a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-support a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Help Center</h1>
+    <p>Find answers to your questions or get in touch with us.</p>
+  </header>
+
+  <div class="container">
+    <!-- Search Help Articles -->
+    <section class="search-section">
+      <h2>Search Help Articles</h2>
+      <input type="text" id="searchInput" placeholder="Search for help articles...">
+      <button onclick="searchHelp()">Search</button>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+      <div class="faq-item">
+        <h3>How do I reset my password?</h3>
+        <p>If you've forgotten your password, go to the login page and click "Forgot Password". You'll receive an email with instructions to reset your password.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How can I update my account information?</h3>
+        <p>You can update your account info by logging into your account and going to the "Profile" section in the settings menu.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I contact support?</h3>
+        <p>You can contact our support team by visiting the "Contact Support" section at the bottom of this page.</p>
+      </div>
+    </section>
+
+    <!-- Contact Support Section -->
+    <section class="contact-support">
+      <h2>Need further assistance?</h2>
+      <p>If you can't find what you're looking for, feel free to reach out to our support team.</p>
+      <p><a href="mailto:support@example.com">Contact Support</a></p>
+    </section>
+  </div>
+
+  <script>
+    function searchHelp() {
+      const searchTerm = document.getElementById('searchInput').value;
+      if (searchTerm) {
+        alert(`Searching for help articles related to: "${searchTerm}"`);
+        // You can integrate an actual search API here.
+      } else {
+        alert('Please enter a search term.');
+      }
+    }
+  </script>
+</body>
+</html>

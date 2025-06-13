@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Orders</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .order-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .order-item {
+      display: flex;
+      align-items: center;
+      background: white;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .order-item:hover {
+      background-color: #ecf0f1;
+      transform: translateY(-5px);
+    }
+
+    .order-item .order-info {
+      flex-grow: 1;
+      margin-left: 1.25rem;
+    }
+
+    .order-item .order-id {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #34495e;
+    }
+
+    .order-item .order-date,
+    .order-item .order-status {
+      font-size: 1rem;
+      color: #7f8c8d;
+    }
+
+    .order-item .order-total {
+      font-size: 1.3rem;
+      color: #3498db;
+    }
+
+    .order-item button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .order-item button:hover {
+      background-color: #2980b9;
+    }
+
+    .order-details {
+      background: white;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: none;
+      transition: opacity 0.3s;
+    }
+
+    .order-details h2 {
+      font-size: 1.75rem;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+    }
+
+    .order-details table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+
+    .order-details table th, .order-details table td {
+      padding: 1rem;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    .order-details table th {
+      background-color: #ecf0f1;
+    }
+
+    .order-status span {
+      padding: 0.3rem 0.7rem;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .status-pending {
+      background-color: #f39c12;
+      color: white;
+    }
+
+    .status-shipped {
+      background-color: #3498db;
+      color: white;
+    }
+
+    .status-delivered {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    .order-actions {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .order-actions button {
+      background-color: #2ecc71;
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .order-actions button:hover {
+      background-color: #27ae60;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .order-item {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .order-item .order-info {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Orders</h1>
+  </header>
+
+  <div class="container">
+    <div class="order-list">
+      <!-- Order Item 1 -->
+      <div class="order-item" id="order1">
+        <div class="order-info">
+          <div class="order-id">Order #12345</div>
+          <div class="order-date">Placed on: March 21, 2025</div>
+          <div class="order-status">
+            Status: <span class="status-shipped">Shipped</span>
+          </div>
+        </div>
+        <div>
+          <div class="order-total">Total: $150.00</div>
+          <button onclick="toggleOrderDetails('order1')">View Details</button>
+        </div>
+      </div>
+
+      <!-- Order Item 2 -->
+      <div class="order-item" id="order2">
+        <div class="order-info">
+          <div class="order-id">Order #12346</div>
+          <div class="order-date">Placed on: March 19, 2025</div>
+          <div class="order-status">
+            Status: <span class="status-pending">Pending</span>
+          </div>
+        </div>
+        <div>
+          <div class="order-total">Total: $80.00</div>
+          <button onclick="toggleOrderDetails('order2')">View Details</button>
+        </div>
+      </div>
+
+      <!-- Order Item 3 -->
+      <div class="order-item" id="order3">
+        <div class="order-info">
+          <div class="order-id">Order #12347</div>
+          <div class="order-date">Placed on: March 18, 2025</div>
+          <div class="order-status">
+            Status: <span class="status-delivered">Delivered</span>
+          </div>
+        </div>
+        <div>
+          <div class="order-total">Total: $250.00</div>
+          <button onclick="toggleOrderDetails('order3')">View Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Details Section -->
+    <div class="order-details" id="details-order1">
+      <h2>Order #12345 Details</h2>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td>Wireless Headphones</td>
+          <td>1</td>
+          <td>$100.00</td>
+        </tr>
+        <tr>
+          <td>Bluetooth Speaker</td>
+          <td>1</td>
+          <td>$50.00</td>
+        </tr>
+      </table>
+      <div><strong>Shipping Address:</strong> 123 Main St, Springfield, IL, 62701</div>
+    </div>
+
+    <div class="order-details" id="details-order2">
+      <h2>Order #12346 Details</h2>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td>Smartphone Case</td>
+          <td>2</td>
+          <td>$40.00</td>
+        </tr>
+        <tr>
+          <td>Screen Protector</td>
+          <td>1</td>
+          <td>$10.00</td>
+        </tr>
+      </table>
+      <div><strong>Shipping Address:</strong> 456 Oak St, Springfield, IL, 62702</div>
+    </div>
+
+    <div class="order-details" id="details-order3">
+      <h2>Order #12347 Details</h2>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td>Gaming Laptop</td>
+          <td>1</td>
+          <td>$250.00</td>
+        </tr>
+      </table>
+      <div><strong>Shipping Address:</strong> 789 Pine St, Springfield, IL, 62703</div>
+    </div>
+  </div>
+
+  <script>
+    // Function to toggle order details visibility
+    function toggleOrderDetails(orderId) {
+      const orderDetails = document.getElementById('details-' + orderId);
+      const isVisible = orderDetails.style.display === 'block';
+      orderDetails.style.display = isVisible ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Bharat Force</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e90ff, #00c9a7);
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        header nav ul li {
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Review Section */
+        .review-section {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .review-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .review-container h1 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .reviews {
+            display: flex;
+            flex-direction: column;
+            margin-top: 40px;
+        }
+
+        .review {
+            background-color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .review h3 {
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        .review p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .review button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .review button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .review-container {
+                padding: 1rem;
+            }
+
+            .reviews {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Reviews Section -->
+    <section class="review-section">
+        <div class="review-container">
+            <h1>Customer Reviews</h1>
+            <p>Here's what our customers are saying about us:</p>
+
+            <div class="reviews">
+                <div class="review" id="review-1">
+                    <h3>Shubham A.</h3>
+                    <p>"Bharat Force provided excellent service for my home cleaning. The team was professional and efficient. Highly recommended!"</p>
+                    <button onclick="toggleDetails('review-1')">Show More</button>
+                    <p class="review-details" id="review-details-1" style="display: none;">Shubham had a great experience with our cleaning team. They did a fantastic job on all tasks, from sweeping to deep cleaning, making his home spotless.</p>
+                </div>
+                <div class="review" id="review-2">
+                    <h3>Priya S.</h3>
+                    <p>"I hired Bharat Force for a plumbing issue, and they arrived on time and solved the problem quickly. Great service at an affordable price!"</p>
+                    <button onclick="toggleDetails('review-2')">Show More</button>
+                    <p class="review-details" id="review-details-2" style="display: none;">Priya had a plumbing emergency, and our team was able to come to her rescue, fixing the issue fast and efficiently.</p>
+                </div>
+                <div class="review" id="review-3">
+                    <h3>Ravi K.</h3>
+                    <p>"The electrician sent by Bharat Force was very knowledgeable and fixed the electrical issue at my place promptly. Very happy with the service."</p>
+                    <button onclick="toggleDetails('review-3')">Show More</button>
+                    <p class="review-details" id="review-details-3" style="display: none;">Ravi's electrical issue was resolved by our skilled electrician, who provided an in-depth inspection and ensured everything was working perfectly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Bharat Force. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleDetails(reviewId) {
+            const details = document.getElementById(`review-details-${reviewId.split('-')[1]}`);
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

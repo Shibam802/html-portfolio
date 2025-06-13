@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Service</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      background : linear-gradient(135deg, #1e90ff, #00c9a7);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .booking-container {
+      background: #fff;
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .booking-container h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      color: green;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="booking-container">
+  <h2>Book a Service</h2>
+  <form id="bookingForm">
+    <div class="form-group">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="service">Select Service:</label>
+      <select id="service" required>
+        <option value="">-- Choose a Service --</option>
+        <option value="app_installation">Minor Installation</option>
+        <option value="app_update">Major Installation</option>
+        <option value="bug_fixing">Small Fixing</option>
+        <option value="device_setup">Device Setup</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Choose Date:</label>
+      <input type="date" id="date" required />
+    </div>
+
+    <div class="form-group">
+      <label for="time">Choose Time:</label>
+      <input type="time" id="time" required />
+    </div>
+
+    <button type="submit">Confirm Booking</button>
+    <div class="success-message" id="successMessage">Your booking has been submitted!</div>
+  </form>
+</div>
+
+<script>
+  const bookingForm = document.getElementById('bookingForm');
+  const successMessage = document.getElementById('successMessage');
+
+  bookingForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    // You can send this data to a backend or API here
+    successMessage.style.display = 'block';
+    bookingForm.reset();
+  });
+</script>
+
+</body>
+</html>

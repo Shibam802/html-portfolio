@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BuildSmart - Home</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #1a73e8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav {
+      background: #0f5fc0;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #1a1a1a;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 280px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .card h3 {
+      margin: 15px 0 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      margin-top: 40px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>BuildSmart Construction</h1>
+  <p>Your Dream Building Starts Here</p>
+</header>
+
+<nav>
+  <a href="#">Home</a>
+  <a href="#designs">Designs</a>
+  <a href="#engineers">Engineers</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- 🏗️ Building Design Section -->
+<section class="section" id="designs">
+  <h2>Select Your Building Design</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Residential">
+      <h3>Residential Building</h3>
+      <p>Modern homes, villas, and apartments designed for comfort.</p>
+      <button>Select Design</button>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba" alt="Commercial">
+      <h3>Commercial Building</h3>
+      <p>Offices, retail outlets, and multi-use commercial structures.</p>
+      <button>Select Design</button>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581090700227-1e8e931d4f3b" alt="Industrial">
+      <h3>Industrial Facility</h3>
+      <p>Factories, warehouses, and production facilities.</p>
+      <button>Select Design</button>
+    </div>
+  </div>
+</section>
+
+<!-- 👷 Engineer Selection Section -->
+<section class="section" id="engineers">
+  <h2>Select Engineers for the Project</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Engineer">
+      <h3>John Carter</h3>
+      <p>Structural Engineer<br>12 Years Experience</p>
+      <button>Select Engineer</button>
+    </div>
+
+    <div class="card">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Engineer">
+      <h3>Sarah Lopez</h3>
+      <p>Electrical Engineer<br>9 Years Experience</p>
+      <button>Select Engineer</button>
+    </div>
+
+    <div class="card">
+      <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Engineer">
+      <h3>David Kim</h3>
+      <p>Mechanical Engineer<br>11 Years Experience</p>
+      <button>Select Engineer</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🛠️ Additional Services -->
+<section class="section" id="services">
+  <h2>Other Services We Provide</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Site Analysis</h3>
+      <p>We evaluate your site for safety, zoning, and environmental conditions.</p>
+    </div>
+    <div class="card">
+      <h3>Permit Assistance</h3>
+      <p>We help you obtain local permits and approvals efficiently.</p>
+    </div>
+    <div class="card">
+      <h3>Interior Design</h3>
+      <p>Creative and functional interior solutions tailored to your lifestyle.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 📞 Contact -->
+<section class="section" id="contact">
+  <h2>Contact Us</h2>
+  <p style="text-align:center;">
+    📧 Email: info@buildsmart.com <br>
+    📞 Phone: +123 456 7890 <br>
+    🕒 Mon - Fri: 9am - 6pm
+  </p>
+</section>
+
+<footer>
+  &copy; 2025 BuildSmart Construction. All Rights Reserved.
+</footer>
+
+</body>
+</html>
+
+

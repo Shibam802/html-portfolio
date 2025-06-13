@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Bharat Force</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+           
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        header nav ul li {
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Layout */
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem;
+            align-items: flex-start;
+        }
+
+        .left-column {
+            width: 60%;
+            padding: 1rem;
+        }
+
+        .left-column h1 {
+            font-size: 36px;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .left-column p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .job-listing {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .job {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 45%;
+            margin: 10px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .job:hover {
+            transform: scale(1.05);
+        }
+
+        .job h3 {
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .job p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .apply-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .apply-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .application-form {
+            background-color: #fff;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .application-form input, .application-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .application-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .application-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .success-message {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Right Column (Image Section) */
+        .right-column {
+            width: 35%;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .right-column img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left-column, .right-column {
+                width: 100%;
+            }
+
+            .job-listing {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .job {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section with Image on Right Side -->
+    <section class="content-wrapper">
+        <!-- Left Column (Content Section) -->
+        <div class="left-column">
+            <h1>Careers at Bharat Force</h1>
+            <p>Join our passionate team and make a difference in the world of home services! We are looking for motivated individuals who are eager to contribute to our growing company. Browse our open positions and apply today!</p>
+            
+            <!-- Job Listings -->
+            <div class="job-listing">
+                <!-- Job 1 -->
+                <div class="job">
+                    <h3>Electrician</h3>
+                    <p>Location: Delhi</p>
+                    <p>Experience: 2+ years</p>
+                    <p>We are looking for a skilled electrician to join our team. If you have experience in electrical installations and maintenance, apply today!</p>
+                    <a href="#application-form" class="apply-btn">Apply Now</a>
+                </div>
+                <!-- Job 2 -->
+                <div class="job">
+                    <h3>Plumber</h3>
+                    <p>Location: Mumbai</p>
+                    <p>Experience: 2+ years</p>
+                    <p>We are looking for a reliable plumber to assist with various home repairs and installations. Join us and be a part of our team!</p>
+                    <a href="#application-form" class="apply-btn">Apply Now</a>
+                </div>
+                <!-- Job 3 -->
+                <div class="job">
+                    <h3>Carpenter</h3>
+                    <p>Location: Bangalore</p>
+                    <p>Experience: 3+ years</p>
+                    <p>We are seeking a skilled carpenter with expertise in furniture making and home improvement. Apply now to join our team.</p>
+                    <a href="#application-form" class="apply-btn">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- Application Form -->
+            <div id="application-form" class="application-form">
+                <h2>Submit Your Application</h2>
+                <form id="application-form-id">
+                    <input type="text" name="full-name" id="full-name" placeholder="Full Name" required>
+                    <input type="email" name="email" id="email" placeholder="Email Address" required>
+                    <input type="tel" name="phone" id="phone" placeholder="Phone Number" required>
+                    <textarea name="cover-letter" id="cover-letter" rows="6" placeholder="Cover Letter" required></textarea>
+                    <input type="file" name="resume" id="resume" accept=".pdf, .doc, .docx" required>
+                    <button type="submit">Submit Application</button>
+                </form>
+                <div id="success-message" class="success-message">
+                    Your application has been submitted successfully! We will contact you soon.
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column (Image Section) -->
+        <div class="right-column">
+            <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_464,dpr_3,fl_progressive:steep,q_auto,c_limit/images/growth/home-screen/1658304442166-cc2d52.jpeg" alt="Join Our Team" />
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Bharat Force. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Function to handle form submission
+        document.getElementById('application-form-id').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form from actual submission
+
+            // Get form data
+            let fullName = document.getElementById('full-name').value;
+            let email = document.getElementById('email').value;
+            let phone = document.getElementById('phone').value;
+            let coverLetter = document.getElementById('cover-letter').value;
+            let resume = document.getElementById('resume').files[0];
+
+            // Simple form validation
+            if (!fullName || !email || !phone || !coverLetter || !resume) {
+                alert('Please fill in all fields and attach your resume!');
+                return;
+            }
+
+            // Show success message
+            document.getElementById('success-message').style.display = 'block';
+
+            // Clear the form after submission
+            document.getElementById('application-form-id').reset();
+
+            // Optionally, you can send the form data to a server or email here
+        });
+    </script>
+
+</body>
+</html>

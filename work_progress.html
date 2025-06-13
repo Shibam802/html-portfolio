@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photo Upload Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Compressor.js for image compression -->
+  <script src="https://unpkg.com/compressorjs@1.0.0/dist/compressor.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e90ff, #00c9a7);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px 25px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      color: #333;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #1e90ff;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      margin: 15px 0 5px;
+      color: #555;
+    }
+
+    label i {
+      margin-right: 8px;
+      color: #00c9a7;
+    }
+
+    input[type="file"] {
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .preview {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border: 2px dashed #ccc;
+      margin-top: 10px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    button {
+      background: #1e90ff;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #1c7ed6;
+    }
+
+    .loading-spinner {
+      display: none;
+      margin: 20px auto;
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #1e90ff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    .thank-you, .success-message {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 16px;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .thank-you {
+      color: #00c9a7;
+    }
+
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .success-message i {
+      margin-right: 8px;
+      color: #28a745;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2><i class="fas fa-tools"></i> Upload Service Photos</h2>
+
+    <form id="photoForm">
+      <label for="beforePhoto"><i class="fas fa-camera-retro"></i> Before Photo:</label>
+      <input type="file" id="beforePhoto" accept="image/*" required>
+      <img id="beforePreview" class="preview" src="#" alt="Before preview">
+
+      <label for="afterPhoto"><i class="fas fa-check-circle"></i> After Photo:</label>
+      <input type="file" id="afterPhoto" accept="image/*" required>
+      <img id="afterPreview" class="preview" src="#" alt="After preview">
+
+      <button type="submit"><i class="fas fa-cloud-upload-alt"></i> Submit</button>
+    </form>
+
+    <div class="loading-spinner" id="spinner"></div>
+    <div class="success-message" id="successMessage">
+      <i class="fas fa-check-circle"></i> Your photos were uploaded successfully!
+    </div>
+    <div class="thank-you" id="thankYou"><i class="fas fa-thumbs-up"></i> Thank you for your submission!</div>
+  </div>
+
+  <script>
+    const beforeInput = document.getElementById('beforePhoto');
+    const afterInput = document.getElementById('afterPhoto');
+    const beforePreview = document.getElementById('beforePreview');
+    const afterPreview = document.getElementById('afterPreview');
+    const spinner = document.getElementById('spinner');
+    const thankYou = document.getElementById('thankYou');
+    const successMessage = document.getElementById('successMessage');
+
+    // Preview image function
+    function previewImage(input, previewEl) {
+      const file = input.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          previewEl.src = e.target.result;
+          previewEl.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    beforeInput.addEventListener('change', () => previewImage(beforeInput, beforePreview));
+    afterInput.addEventListener('change', () => previewImage(afterInput, afterPreview));
+
+    // Compress image before uploading
+    function compressImage(file) {
+      return new Promise((resolve, reject) => {
+        new Compressor(file, {
+          quality: 0.6,
+          success(result) {
+            resolve(result);
+          },
+          error(err) {
+            reject(err);
+          }
+        });
+      });
+    }
+
+    // Handle form submission
+    document.getElementById('photoForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Ensure both images are selected
+      if (!beforeInput.files.length || !afterInput.files.length) {
+        alert("Please upload both before and after photos.");
+        return;
+      }
+
+      spinner.style.display = 'block';
+      successMessage.style.display = 'none';
+      thankYou.style.display = 'none';
+
+      try {
+        // Compress the images before simulating upload
+        const beforeCompressed = await compressImage(beforeInput.files[0]);
+        const afterCompressed = await compressImage(afterInput.files[0]);
+
+        // Simulating image upload by delaying
+        setTimeout(() => {
+          spinner.style.display = 'none';
+          successMessage.style.display = 'block';
+          thankYou.style.display = 'block';
+
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            successMessage.style.display = 'none';
+            thankYou.style.display = 'none';
+          }, 5000);
+        }, 2000);
+
+      } catch (error) {
+        spinner.style.display = 'none';
+        alert("Upload failed. Please try again.");
+        console.error(error);
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+

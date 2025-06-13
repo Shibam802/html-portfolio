@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+        .cart-container, .saved-container {
+            border: 2px solid #ff6f61;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        .cart-container:hover, .saved-container:hover {
+            transform: scale(1.03);
+        }
+        .cart-icon {
+            font-size: 40px;
+            color: #ff6f61;
+        }
+        .cart-message, .saved-message {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .saved-container {
+            border: 2px solid #4caf50;
+            text-align: left;
+            padding: 25px;
+        }
+        .saved-icon {
+            font-size: 40px;
+            color: #4caf50;
+            text-align: center;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .saved-list {
+            list-style: none;
+            padding: 0;
+        }
+        .saved-list li {
+            background: #e8f5e9;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: bold;
+            color: #333;
+        }
+        .saved-list li span {
+            font-size: 20px;
+        }
+        .remove-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .remove-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Add to Cart Section -->
+        <div class="cart-container">
+            <div class="cart-icon">🛒</div>
+            <p class="cart-message">No product added till now</p>
+        </div>
+
+        <!-- Saved for Later Section -->
+        <div class="saved-container">
+            <span class="saved-icon">💾</span>
+            <p class="saved-message">Saved for Later</p>
+            <ul class="saved-list">
+                <li>
+                    <span>🔧 Plumber</span>
+                    <button class="remove-btn">Remove</button>
+                </li>
+                <li>
+                    <span>🔌 Electrician</span>
+                    <button class="remove-btn">Remove</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="addcart.js"></script>
+
+</body>
+</html>

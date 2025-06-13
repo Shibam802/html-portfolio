@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | YourWebsite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS will go here */
+        /* Base Styles */
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-color: #6c757d;
+    --success-color: #4bb543;
+    --danger-color: #ff3333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e1e5eb;
+}
+
+.back-button a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.back-button a:hover {
+    text-decoration: underline;
+}
+
+.profile-header h1 {
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+.profile-content {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.profile-sidebar {
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.profile-main {
+    flex-grow: 1;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.profile-picture-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.picture-actions {
+    display: flex;
+    justify-content: center;
+}
+
+#changePictureBtn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#changePictureBtn:hover {
+    background-color: var(--secondary-color);
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    padding: 15px 0;
+    border-top: 1px solid #e1e5eb;
+    border-bottom: 1px solid #e1e5eb;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--gray-color);
+}
+
+.profile-bio {
+    margin-top: 20px;
+}
+
+.profile-bio h3 {
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.profile-bio p {
+    margin-bottom: 15px;
+    color: var(--gray-color);
+}
+
+#editBioBtn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    justify-content: center;
+}
+
+#editBioBtn:hover {
+    background-color: rgba(67, 97, 238, 0.1);
+}
+
+.info-section {
+    margin-bottom: 25px;
+}
+
+.info-section h2 {
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    font-size: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e1e5eb;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.info-label {
+    font-weight: 500;
+    width: 150px;
+    color: var(--gray-color);
+}
+
+.info-value {
+    flex-grow: 1;
+}
+
+.edit-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.edit-btn:hover {
+    color: var(--secondary-color);
+}
+
+.profile-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.action-btn.primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.action-btn.secondary {
+    background-color: white;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+}
+
+.action-btn.secondary:hover {
+    background-color: rgba(255, 51, 51, 0.1);
+}
+
+.profile-posts {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.profile-posts h2 {
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.post-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+}
+
+.post-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.post-info {
+    padding: 12px;
+}
+
+.post-title {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.post-date {
+    font-size: 12px;
+    color: var(--gray-color);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: var(--gray-color);
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: var(--dark-color);
+}
+
+#modalTitle {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.save-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+}
+
+.save-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-content {
+        flex-direction: column;
+    }
+    
+    .profile-sidebar {
+        width: 100%;
+    }
+    
+    .posts-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .profile-header h1 {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .info-label {
+        margin-bottom: 5px;
+        width: auto;
+    }
+    
+    .edit-btn {
+        align-self: flex-end;
+        margin-left: 0;
+        margin-top: 5px;
+    }
+    
+    .profile-actions {
+        flex-direction: column;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <header class="profile-header">
+            <div class="back-button">
+                <a href="homepage.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+            <h1>User Profile</h1>
+        </header>
+
+        <div class="profile-content">
+            <div class="profile-sidebar">
+                <div class="profile-picture-container">
+                    <img src="shibam_photo.jpg" alt="Profile Picture" class="profile-picture" id="profilePicture">
+                    <div class="picture-actions">
+                        <button id="changePictureBtn"><i class="fas fa-camera"></i> Change Photo</button>
+                        <input type="file" id="pictureUpload" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">245</span>
+                        <span class="stat-label">Posts</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1.2K</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">356</span>
+                        <span class="stat-label">Following</span>
+                    </div>
+                </div>
+
+                <div class="profile-bio">
+                    <h3>About Me</h3>
+                    <p id="bioText">Digital creator | Photography enthusiast | Coffee lover | Based in San Francisco</p>
+                    <button id="editBioBtn"><i class="fas fa-edit"></i> Edit Bio</button>
+                </div>
+            </div>
+
+            <div class="profile-main">
+                <div class="profile-info">
+                    <div class="info-section">
+                        <h2>Personal Information</h2>
+                        <div class="info-item">
+                            <span class="info-label">Full Name:</span>
+                            <span class="info-value" id="fullName">Alex Johnson</span>
+                            <button class="edit-btn" data-field="fullName"><i class="fas fa-edit"></i></button>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Username:</span>
+                            <span class="info-value" id="username">@alexj</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Email:</span>
+                            <span class="info-value" id="email">alex.johnson@example.com</span>
+                            <button class="edit-btn" data-field="email"><i class="fas fa-edit"></i></button>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Location:</span>
+                            <span class="info-value" id="location">San Francisco, CA</span>
+                            <button class="edit-btn" data-field="location"><i class="fas fa-edit"></i></button>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Member Since:</span>
+                            <span class="info-value">January 2022</span>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h2>Account Settings</h2>
+                        <div class="info-item">
+                            <span class="info-label">Password:</span>
+                            <span class="info-value">••••••••</span>
+                            <button class="edit-btn" data-field="password"><i class="fas fa-edit"></i></button>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Notification Settings:</span>
+                            <span class="info-value">Enabled</span>
+                            <button class="edit-btn" data-field="notifications"><i class="fas fa-edit"></i></button>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Privacy Settings:</span>
+                            <span class="info-value">Public</span>
+                            <button class="edit-btn" data-field="privacy"><i class="fas fa-edit"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-actions">
+                    <button class="action-btn primary"><i class="fas fa-save"></i> Save Changes</button>
+                    <button class="action-btn secondary"><i class="fas fa-sign-out-alt"></i> Log Out</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-posts">
+            <h2>My Past Orders</h2>
+            <div class="posts-grid">
+                <!-- Sample posts will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle">Edit Information</h2>
+            <form id="editForm">
+                <div class="form-group" id="modalFormContent">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+                <button type="submit" class="save-btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript will go here
+        document.addEventListener('DOMContentLoaded', function() {
+    // DOM Elements
+    const profilePicture = document.getElementById('profilePicture');
+    const changePictureBtn = document.getElementById('changePictureBtn');
+    const pictureUpload = document.getElementById('pictureUpload');
+    const editBioBtn = document.getElementById('editBioBtn');
+    const bioText = document.getElementById('bioText');
+    const editButtons = document.querySelectorAll('.edit-btn');
+    const modal = document.getElementById('editModal');
+    const closeModal = document.querySelector('.close-modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalFormContent = document.getElementById('modalFormContent');
+    const editForm = document.getElementById('editForm');
+    const postsGrid = document.querySelector('.posts-grid');
+    
+    // Sample posts data
+    const samplePosts = [
+        { id: 1, title: "Electrician", date: "2023-05-15", image: "https://oncallelectric.ca/wp-content/uploads/2021/02/importance-of-hiring-an-electrician-over-diy-2-1-1.jpg" },
+        { id: 2, title: "Mountain Hike", date: "2023-05-10", image: "https://source.unsplash.com/random/300x200?mountain" },
+        { id: 3, title: "City Tour", date: "2023-05-05", image: "https://source.unsplash.com/random/300x200?city" },
+        { id: 4, title: "Beach Vacation", date: "2023-04-28", image: "https://source.unsplash.com/random/300x200?beach" },
+        { id: 5, title: "Food Festival", date: "2023-04-20", image: "https://source.unsplash.com/random/300x200?food" },
+        { id: 6, title: "Concert Night", date: "2023-04-15", image: "https://source.unsplash.com/random/300x200?concert" }
+    ];
+    
+    // Load sample posts
+    function loadPosts() {
+        postsGrid.innerHTML = '';
+        samplePosts.forEach(post => {
+            const postCard = document.createElement('div');
+            postCard.className = 'post-card';
+            postCard.innerHTML = `
+                <img src="${post.image}" alt="${post.title}" class="post-image">
+                <div class="post-info">
+                    <h3 class="post-title">${post.title}</h3>
+                    <p class="post-date">${formatDate(post.date)}</p>
+                </div>
+            `;
+            postsGrid.appendChild(postCard);
+        });
+    }
+    
+    // Format date
+    function formatDate(dateString) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString(undefined, options);
+    }
+    
+    // Change profile picture
+    changePictureBtn.addEventListener('click', () => {
+        pictureUpload.click();
+    });
+    
+    pictureUpload.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                profilePicture.src = event.target.result;
+                // In a real app, you would upload the image to your server here
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    
+    // Edit bio
+    editBioBtn.addEventListener('click', () => {
+        modalTitle.textContent = 'Edit Bio';
+        modalFormContent.innerHTML = `
+            <div class="form-group">
+                <label for="bioInput">About Me</label>
+                <textarea id="bioInput" class="form-control">${bioText.textContent}</textarea>
+            </div>
+        `;
+        modal.style.display = 'block';
+        
+        // Store the field we're editing in the form
+        editForm.dataset.field = 'bio';
+    });
+    
+    // Edit other fields
+    editButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const field = e.currentTarget.dataset.field;
+            const fieldElement = document.getElementById(field);
+            const currentValue = fieldElement.textContent;
+            
+            modalTitle.textContent = `Edit ${field.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}`;
+            
+            if (field === 'password') {
+                modalFormContent.innerHTML = `
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" placeholder="Enter current password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" placeholder="Enter new password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm New Password</label>
+                        <input type="password" id="confirmPassword" placeholder="Confirm new password" required>
+                    </div>
+                `;
+            } else if (field === 'notifications' || field === 'privacy') {
+                const options = field === 'notifications' 
+                    ? ['Enabled', 'Disabled'] 
+                    : ['Public', 'Private', 'Friends Only'];
+                
+                let optionsHTML = options.map(opt => 
+                    `<option value="${opt.toLowerCase()}" ${currentValue.toLowerCase() === opt.toLowerCase() ? 'selected' : ''}>${opt}</option>`
+                ).join('');
+                
+                modalFormContent.innerHTML = `
+                    <div class="form-group">
+                        <label for="${field}Input">${modalTitle.textContent}</label>
+                        <select id="${field}Input" class="form-control">
+                            ${optionsHTML}
+                        </select>
+                    </div>
+                `;
+            } else {
+                modalFormContent.innerHTML = `
+                    <div class="form-group">
+                        <label for="${field}Input">${modalTitle.textContent}</label>
+                        <input type="${field === 'email' ? 'email' : 'text'}" id="${field}Input" value="${currentValue}" class="form-control">
+                    </div>
+                `;
+            }
+            
+            modal.style.display = 'block';
+            editForm.dataset.field = field;
+        });
+    });
+    
+    // Save changes
+    editForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const field = editForm.dataset.field;
+        const fieldElement = document.getElementById(field);
+        
+        if (field === 'bio') {
+            const newBio = document.getElementById('bioInput').value;
+            bioText.textContent = newBio;
+        } 
+        else if (field === 'password') {
+            // In a real app, you would validate and update the password here
+            alert('Password updated successfully!');
+        }
+        else if (field === 'notifications' || field === 'privacy') {
+            const newValue = document.getElementById(`${field}Input`).value;
+            fieldElement.textContent = newValue.charAt(0).toUpperCase() + newValue.slice(1);
+        }
+        else {
+            const newValue = document.getElementById(`${field}Input`).value;
+            fieldElement.textContent = newValue;
+        }
+        
+        modal.style.display = 'none';
+    });
+    
+    // Close modal
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+    
+    // Initialize the page
+    loadPosts();
+});
+    </script>
+</body>
+</html>

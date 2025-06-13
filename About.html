@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      background: linear-gradient(135deg, #1e90ff, #00c9a7);
+      color: #333;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+
+    header nav ul li {
+      margin: 0 20px;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+    }
+
+    header nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #333;
+      color: white;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .about-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about-container h1 {
+      font-size: 36px;
+      color: #333;
+    }
+
+    .about-container p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+
+    .team {
+      margin-top: 40px;
+    }
+
+    .team h2 {
+      font-size: 28px;
+      color: #333;
+    }
+
+    .team-member {
+      background-color: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .team-member h3 {
+      font-size: 24px;
+    }
+
+    .team-member p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .team-bio {
+      font-size: 16px;
+      color: #666;
+      margin-top: 10px;
+      display: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header nav ul {
+        flex-direction: column;
+        padding: 0;
+      }
+
+      header nav ul li {
+        margin: 10px 0;
+      }
+
+      .about-section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <section class="about-section">
+    <div class="about-container">
+      <h1>About Us</h1>
+      <p>Welcome to Bharat Force, your go-to company for reliable installation and servicing. We provide top-quality services at affordable prices, ensuring every job is done right the first time. Whether you need installation, repairs, or regular maintenance, our skilled team delivers exceptional results with a focus on customer satisfaction. At Bharat Force, we believe in offering high-quality service without the high price tag. Thank you for choosing us — where quality and affordability meet!</p>
+
+      <div class="team">
+        <h2>Meet Our Team</h2>
+        <div class="team-member" id="team-member-1">
+          <!-- Image for CEO -->
+          <img src="shibam_photo.jpg" alt="Shibam Banik">
+          <h3>Shibam Banik</h3>
+          <p>Founder & CEO</p>
+          <button onclick="showDetails('team-member-1')">Read More</button>
+          <p class="team-bio" id="bio-team-member-1" style="display: none;">Shibam is the visionary behind our company. With years of experience, he ensures we stay ahead of the competition.</p>
+        </div>
+        <div class="team-member" id="team-member-2">
+          <!-- Image for CTO -->
+          <img src="vishal.jpg" alt="Jaya Vishal">
+          <h3>Jaya Vishal</h3>
+          <p>Chief Technical Officer</p>
+          <button onclick="showDetails('team-member-2')">Read More</button>
+          <p class="team-bio" id="bio-team-member-2" style="display: none;">As the CTO of Bharat Force, Jaya Vishal leads our tech-driven approach, ensuring that we stay at the forefront of innovation. With expertise in the latest technologies, Jaya plays a key role in optimizing our services and enhancing customer satisfaction through advanced solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Bharat Force. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function showDetails(teamMemberId) {
+      // Get the bio paragraph and toggle its visibility
+      const bio = document.getElementById(`bio-${teamMemberId}`);
+      if (bio.style.display === "none" || bio.style.display === "") {
+        bio.style.display = "block";
+      } else {
+        bio.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>

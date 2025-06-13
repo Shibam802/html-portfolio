@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat Force</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #f5f5f5;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            height: 350px;
+            width: auto;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 0 10px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .delivery-section {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .delivery-section label,
+        .delivery-section select,
+        .delivery-section button {
+            margin-right: 5px;
+        }
+
+        .delivery-section select,
+        .delivery-section input,
+        .delivery-section button {
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        .delivery-section button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delivery-section button:hover {
+            background-color: #0056b3;
+        }
+
+        .search-bar {
+            margin-left: 20px;
+        }
+
+        .search-bar input {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <head>
+        <!-- Add Font Awesome CDN for icons -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    </head>
+    
+    <header>
+        <ul class="headnav">
+            <!-- Logo Section -->
+            <img src="logo_bharat.jpg" alt="Bharat Force" class="logo">
+            
+            <!-- Navigation Links with Icons -->
+            <li><a href=""><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="Account.html"><i class="fas fa-user-circle"></i> Account</a></li>
+            <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+            <li><a href="signin.html"><i class="fas fa-user-plus"></i> Signin</a></li>
+            <li><a href="addcart.html"><i class="fas fa-cart-plus"></i> Addcart</a></li>
+            <button id="toggleBtn">🌙 Dark Mode</button>
+
+        </ul>
+    
+        <!-- Chatbox with Icon -->
+        <div id="chat-box" class="chat-box">
+            <button id="chat-toggle"><i class="fas fa-comments"></i> Chat with us</button>
+            <div id="chat-window" class="chat-window">
+                <div class="chat-header">
+                    <span>Live Support</span>
+                    <button id="close-chat"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="chat-body">
+                    <p>How can we assist you today?</p>
+                </div>
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button id="send-message"><i class="fas fa-paper-plane"></i> Send</button>
+            </div>
+        </div>
+    
+        <!-- Search and Delivery Section -->
+        <div class="headsearch">
+            <div class="search-bar">
+                <!-- Search Bar with Icon -->
+                <select id="professional-search">
+                    <option value="Select a Professional">Select a Professional</option>
+                    <option value="carpenter">Carpenter</option>
+                    <option value="plumber">Plumber</option>
+                    <option value="electrician">Electrician</option>
+                </select>
+                <button type="submit"><i class="fas fa-search"></i> Search</button>
+            </div>
+    
+            <div class="delivery-section">
+                <!-- City Dropdown with Icon -->
+                <label for="city"><i class="fas fa-map-marker-alt"></i> City:</label>
+                <select id="city" name="city">
+                    <option value="Delhi">Delhi</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Bangalore">Bangalore</option>
+                </select>
+                <button type="submit"><i class="fas fa-check"></i> Confirm</button>
+            </div>
+        </div>
+    </header>
+    
+
+        <div>
+            <main>
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <p class="hero-text">Home Services At Your Doorstep</p>
+                        <p class="hero-description">Get expert professionals for all your home service needs. Fast, reliable, and affordable services are just a click away!</p>
+
+                     
+                        
+
+                        <button class="toggle-btn" id="toggleBtn">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        
+                        <!-- Sidebar -->
+                        <div class="sidebar" id="sidebar">
+                            <div class="sidebar-header">
+                                <i class="fas fa-rocket"></i>
+                                <h3>My App</h3>
+                            </div>
+                            <a href="homepage.html" class="menu-item active">
+                                <i class="fas fa-home"></i>
+                                <span>Dashboard</span>
+                            </a>
+                            <a href="profile.html" class="menu-item">
+                                <i class="fas fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+                            
+                            <!-- Dropdown menu example -->
+                            <button class="dropdown-btn" id="settingsBtn">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                                <i class="fas fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-container" id="settingsMenu">
+                                <a href="Account.html" class="menu-item">
+                                    <i class="fas fa-wrench"></i>
+                                    <span>Account</span>
+                                </a>
+                                <a href="notification.html" class="menu-item">
+                                    <i class="fas fa-bell"></i>
+                                    <span>Notifications</span>
+                                </a>
+                                <a href="Privacy_policy.html" class="menu-item">
+                                    <i class="fas fa-lock"></i>
+                                    <span>Privacy</span>
+                                </a>
+                            </div>
+                            
+                            <a href="engineer.html" class="menu-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>Build Home</span>
+                            </a>
+                            <a href="calender.html" class="menu-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>Calendar</span>
+                            </a>
+                            <a href="analytics.html" class="menu-item">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Analytics</span>
+                            </a>
+                            <a href="help.html" class="menu-item">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Help</span>
+                            </a>
+                        </div>
+
+
+
+                        <div class="hero-info">
+                            <div class="hero-image">
+                                <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1651040407144-95eb6e.jpeg" alt="Service Image" />
+                            </div>
+                            <div class="hero-rating">
+                                <span class="rating-stars">4.5+⭐⭐⭐⭐⭐</span> <!-- Example Rating -->
+                                <p class="customer-count">1.5M+ Customers Served</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_auto:low,f_auto/dpr_1,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1719293177589-984c77.jpeg"
+                            height="600px" alt="Bharat Force">
+                            
+                    </div>
+                </div>
+            </main>
+</div>            
+        
+
+        <section id="professionals">
+            <h2>Find Professionals</h2>
+        
+            <!-- Scroll Buttons -->
+            <button class="scroll-button scroll-left">&#9665;</button>
+           
+        
+            <div class="professional-list">
+                <div class="professional">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto/c_limit/images/growth/luminosity/1652853823570-152440.png"
+                        alt="Professional 1">
+                    <h3>Kalpaj</h3>
+                    <p>Electrician | 5 Years Experience</p>
+                   
+                    <button onclick="window.location.href='call.html'">Book Now</button>
+                    
+                    <div class="rating">
+                        <span class="star" data-rating="1">☆</span>
+                        <span class="star" data-rating="2">☆</span>
+                        <span class="star" data-rating="3">☆</span>
+                        <span class="star" data-rating="4">☆</span>
+                        <span class="star" data-rating="5">☆</span>
+                    </div>
+                </div>
+                <div class="professional">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto/c_limit/images/supply/customer-app-supply/1727776714128-a28056.jpeg"
+                        alt="Professional 2">
+                    <h3>Jaya vishal</h3>
+                    <p>Painter | 7 Years Experience</p>
+                    <button>Book Now</button>
+                    <div class="rating">
+                        <span class="star" data-rating="1">☆</span>
+                        <span class="star" data-rating="2">☆</span>
+                        <span class="star" data-rating="3">☆</span>
+                        <span class="star" data-rating="4">☆</span>
+                        <span class="star" data-rating="5">☆</span>
+                    </div>
+                </div>
+                <div class="professional">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1653892249137-8848bb.png"
+                        alt="Professional 3">
+                    <h3>Shibam Banik</h3>
+                    <p>Carpenter | 10 Years Experience</p>
+                    <button>Book Now</button>
+                    <div class="rating">
+                        <span class="star" data-rating="1">☆</span>
+                        <span class="star" data-rating="2">☆</span>
+                        <span class="star" data-rating="3">☆</span>
+                        <span class="star" data-rating="4">☆</span>
+                        <span class="star" data-rating="5">☆</span>
+                    </div>
+                </div>
+                <div class="professional">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1728650153210-eab1e5.jpeg"
+                        alt="Professional 2">
+                    <h3>Harry</h3>
+                    <p> Cleaning|3 Years Experien</p>
+                    <button>Book Now</button>
+                    <div class="rating">
+                        <span class="star" data-rating="1">☆</span>
+                        <span class="star" data-rating="2">☆</span>
+                        <span class="star" data-rating="3">☆</span>
+                        <span class="star" data-rating="4">☆</span>
+                        <span class="star" data-rating="5">☆</span>
+                    </div>
+                </div>
+                <div class="professional">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1738313713066-48fc38.jpeg"
+                        alt="Professional 2">
+                    <h3>Joey</h3>
+                    <p>Insta Help | 4 Years Experience</p>
+                    <button>Book Now</button>
+                    <div class="rating">
+                        <span class="star" data-rating="1">☆</span>
+                        <span class="star" data-rating="2">☆</span>
+                        <span class="star" data-rating="3">☆</span>
+                        <span class="star" data-rating="4">☆</span>
+                        <span class="star" data-rating="5">☆</span>
+                    </div>
+                </div>
+                <div class="professional">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1659102409372-8ca38a.png"
+                        alt="Professional 2">
+                    <h3>Suraj</h3>
+                    <p>Intense Cleaning | 7 Years Experience</p>
+                    <button>Book Now</button>
+                    <div class="rating">
+                        <span class="star" data-rating="1">☆</span>
+                        <span class="star" data-rating="2">☆</span>
+                        <span class="star" data-rating="3">☆</span>
+                        <span class="star" data-rating="4">☆</span>
+                        <span class="star" data-rating="5">☆</span>
+                    </div>
+                </div>
+                
+                <!-- Add more professionals as needed -->
+            </div>
+        
+            <!-- Scroll Button -->
+            <button class="scroll-button scroll-right">&#9655;</button>
+        </section>
+        
+
+
+        <section>
+            <img id="mainImage" src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1736922795409-bece35.jpeg"
+            <button id="buyButton" onclick="buyNow()"></button>
+        </section>
+        
+        
+        
+        <section id="thoughtful-curation">
+            <h2>Beautiful Curation</h2>
+            <h6>of our finest experiences</h6>
+            <div class="image-list">
+                <div class="image">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1742315967439-9a316c.jpeg" alt="Carpenter Service">
+                    <p>Deep Clean</p>
+                </div>
+                <div class="image">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1740123536224-5eec97.jpeg" alt="Electrician Service">
+                    <p>Wall Panels</p>
+                </div>
+                <div class="image">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_394,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1678450687690-81f922.jpeg" alt="Plumbing Service">
+                    <p>Get Experts</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="most-booked-services">
+            <h2>Most Booked Services</h2>
+           
+
+            
+            <div class="service-list">
+                <div class="service">
+                    <img src="https://uploads-ssl.webflow.com/5fbde3dc76aea24cb3b0ae52/6017bb2859b475c6f95ef05f_home-cleaning-hero.jpg"
+                        alt="Service 1">
+                    <h3>Home Cleaning</h3>
+                    <p>Cost: $50</p>
+
+                   
+                    <div class="price-filter">
+                        <label for="price-range">Price Range: </label>
+                        <input type="range" id="price-range" min="0" max="100" step="10">
+                        <span id="price-value">$0</span>
+                     </div>
+
+
+
+                </div>
+                <div class="service">
+                    <img src="https://danielhillplumbingandgas.com/wp-content/uploads/2019/05/Plumbing-Installation.jpg"
+                        alt="Service 2">
+                    <h3>Plumbing Repair</h3>
+                    <p>Cost: $70</p>
+
+                    <div class="price-filter">
+                        <label for="price-range">Price Range: </label>
+                        <input type="range" id="price-range" min="0" max="100" step="10">
+                        <span id="price-value">$0</span>
+                     </div>
+
+
+
+                </div>
+                <div class="service">
+                    <img src="https://nashvilleelectrician.excaliburelectronics.com/wp-content/uploads/2022/04/emergency-electrical-repair.jpg"
+                        alt="Service 3">
+                    <h3>Electrical Fix</h3>
+                    <p>Cost: $60</p>
+
+
+                    <div class="price-filter">
+                        <label for="price-range">Price Range: </label>
+                        <input type="range" id="price-range" min="0" max="100" step="10">
+                        <span id="price-value">$0</span>
+                     </div>
+
+
+                </div>
+            </div>
+        </section>
+        <section id="cleaning-pest-control">
+            <h2>Cleaning and Pest Control</h2>
+            <div class="cleaning-list">
+                <div class="cleaning-item">
+                    <img src="https://scrubnbubbles.com/wp-content/uploads/2022/05/cleaning-service.jpeg"
+                        alt="Full Home Cleaning">
+                    <h3>Full Home Cleaning</h3>
+                </div>
+                <div class="cleaning-item">
+                    <img src="https://static.vecteezy.com/system/resources/previews/006/877/053/large_2x/cleaning-a-dirty-sofa-with-a-sofa-washer-photo.jpg"
+                        alt="Sofa Cleaning">
+                    <h3>Sofa Cleaning</h3>
+                </div>
+                <div class="cleaning-item">
+                    <img src="https://www.housedigest.com/img/gallery/why-an-expert-says-you-may-need-pest-control-every-month-exclusive/intro-1665132175.jpg"
+                        alt="General Pest Control">
+                    <h3>General Pest Control</h3>
+                </div>
+                <div class="cleaning-item">
+                    <img src="https://kitchenwarehouseltd.com/blog/wp-content/uploads/2020/04/shutterstock_414078565-scaled.jpg"
+                        alt="Kitchen Cleaning">
+                    <h3>Kitchen Cleaning</h3>
+                </div>
+                <div class="cleaning-item">
+                    <img src="https://poloandtweed.com/wp-content/uploads/2018/11/cleaning-toilet-tease-today-160818_8fdb7cd9067a4482122c3e229a13c4e2.jpg"
+                        alt="Bathroom Cleaning">
+                    <h3>Bathroom Cleaning</h3>
+                </div>
+                <div class="cleaning-item">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_231,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1700141859007-d310cd.jpeg"
+                        alt="Bathroom Cleaning">
+                    <h3>General Pesticide</h3>
+                </div>
+            </div>
+        </section>
+        <section>
+            <img id="mainImage" src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1730813300631-fc044e.jpeg"
+            <button id="buyButton" onclick="buyNow()"></button>
+        </section>
+        <section id="quick-home-repairs" class="quick-repairs">
+            <h2>Quick Home Repairs</h2>
+            <button class="scroll-button scroll-left" onclick="scrollLeft()">&#9665;</button>
+            <div class="quick-repair-container" id="repairScroll">
+                <div class="quick-repair">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1733294782094-026b0b.jpeg" alt="Handyman Service">
+                    <h3>Lock Repair</h3>
+                    <p>Leaky taps and pipe fixes</p>
+                    <p>Cost: $40</p>
+                </div>
+                <div class="quick-repair">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1714126049955-ab66a9.jpeg" alt="Electrical Fix">
+                    <h3>Door Lock Repair</h3>
+                    <p>Small fixture issues</p>
+                    <p>Cost: $50</p>
+                </div>
+                <div class="quick-repair">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1714126042904-f3021a.jpeg" alt="Plumbing Repairs">
+                    <h3>Cupboard repair</h3>
+                    <p>Minor Repairs Quickly</p>
+                    <p>Cost: $45</p>
+                </div>
+                <div class="quick-repair">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1653643393656-013703.png" alt="Painting Touch-up">
+                    <h3>Curtains Fix</h3>
+                    <p>Curtain Rod Installation</p>
+                    <p>Cost: $60</p>
+                </div>
+                <div class="quick-repair">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1714125995630-cf1205.jpeg" alt="Furniture Repair">
+                    <h3>Door Repair</h3>
+                    <p>Fix broken Doors</p>
+                    <p>Cost: $55</p>
+                </div>
+                <div class="quick-repair">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1653894928302-4721b3.png"alt="Furniture Repair">
+                    <h3>ConnectionHouseInstal</h3>
+                    <p>Fix broken Doors</p>
+                    <p>Cost: $55</p>
+                </div>
+                <div class="quick-repair">
+                    <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_233,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1634541807845-995678.png"alt="Furniture Repair">
+                    <h3>Washing Machine inlet</h3>
+                    <p>Fix broken Doors</p>
+                    <p>Cost: $55</p>
+            </div>
+            <button class="scroll-button scroll-right" onclick="scrollRight()">&#9655;</button>
+        </section>
+        <section class="buy-section">
+            <img src="https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template/w_1232,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1734687235149-cd2754.jpeg" alt="Product Image" onclick="buyNow()">
+        </section>
+        
+
+
+        
+    </main>
+    <footer>
+        <div class="foot">
+            <!--<div id="contact">
+                <h3><a href="contacts.html" id="contact-id" style="color:red">Contact Me</a></h3>
+
+                <p>Email: <a href="mailto:shibambanik0@gmail.com">shibambanik0@gmail.com</a></p>
+                <p>Phone: <a href="tel:9612706843">9612706843</a></p>
+                <p>Connect with me on <a href="https://www.linkedin.com/feed/">LinkedIn</a> and <a
+                        href="https://www.instagram.com/">Instagram</a>.</p>
+
+            </div>-->
+            <div id="Company">
+                <h3><a href="company.html" id="about-id" style="color:red">Company</a></h3>
+
+                <p> <a href="About.html">About us</a></p>
+                <p> <a href="terms_conditions.html">Terms and Conditions</a></p>
+                <p> <a href="Privacy_policy.html">Privacy policy</a></p>
+                <p> <a href="career.html">Careers</a></p>
+
+            </div>
+
+
+            <div id="contact">
+                <h3><a href="contacts.html" id="contact-id" style="color:red">Contact Me</a></h3>
+        
+                <p>Email: <a href="mailto:shibambanik0@gmail.com">shibambanik0@gmail.com</a></p>
+                <p>Phone: <a href="tel:9612706843">9612706843</a></p>
+                <p>Connect with me on:</p>
+        
+                <div class="social-icons">
+                    <!-- LinkedIn Icon -->
+                    <a href="https://www.linkedin.com/feed/" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <!-- Instagram Icon -->
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <!-- Email Icon (Already linked above, but included for consistency) -->
+                    <a href="mailto:shibambanik0@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <!-- Phone Icon -->
+                    <a href="tel:9612706843">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+            <div id="Customers">
+                <h3><a href="customers.html" id="about-id" style="color:red">For Customer</a></h3>
+
+                <p> <a href="contact.html">Contact us</a></p>
+                <p> <a href="Reviews.html">Reviews</a></p>
+                <p><a href="work_progress.html">WorkProgress</a></p>
+                
+
+            </div>
+
+        </div>
+        <section class="copyright">Copyright &copy; | All rights reserved</section>
+
+    </footer>
+    <script src="homepage.js"></script>
+</body>
+</html>
