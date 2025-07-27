@@ -42,8 +42,9 @@ Ensure the following are installed:
 
 ```bash
 git clone https://github.com/your-username/installation-servicing-platform.git
-cd installation-servicing-platform
+cd installation-servicing-platform.
 
+```
 ## 🔧 Usage
 
 1. **Login/Register** as a customer or technician.
@@ -55,14 +56,13 @@ cd installation-servicing-platform
 
 ---
 
-## Contributing
-Contributions are welcome!
-
-## 📬 Contact
+📬 Contact
 For feature requests, support, or bug reports:
 
 Your Name
-📧 shibambanik0@gmail.com
+📧shibambanik0@gmail.com
 🔗 https://github.com/Shibam802
+
+
 
 
